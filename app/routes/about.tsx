@@ -1,6 +1,7 @@
 import { Link } from "@remix-run/react";
 import { MetaFunction } from "@remix-run/node";
 import karateLessonImage from "~/Assets/jpg/karate-lesson.jpg";
+import blackBelt from "~/Assets/jpg/blackBelt.jpg";
 import Navbar from "~/components/Navbar";
 import karateLesson from "~/Assets/jpg/karate-lesson.jpg";
 import { useOptionalUser } from "~/utils";
@@ -21,7 +22,7 @@ export default function Index() {
               <div className="absolute inset-0">
                 <img
                   className="h-full w-full object-cover"
-                  src={karateLessonImage}
+                  src={karateLesson}
                   alt="People training on the beach"
                 />
                 <div className="absolute inset-0 bg-[color:rgba(254,204,27,0.5)] mix-blend-multiply" />
@@ -40,30 +41,17 @@ export default function Index() {
           <div className="mx-auto mt-16 flex max-w-6xl">
             <div className="w-1/2 p-4">
               <h2 className="pt-4 text-3xl font-extrabold tracking-wide text-red-500">
-                Our Gym
+                Teachers
               </h2>
               <p className="pt-4 text-neutral-600">
-                Welcome to our MMA Gym website! We are thrilled to offer you an
-                inside look into our world-class facility and the top-notch
-                training programs we provide. Whether you are a beginner looking
-                to learn the basics of MMA, or an experienced fighter looking to
-                take your skills to the next level, we have something for
-                everyone. Our gym is staffed by knowledgeable and experienced
-                trainers who are dedicated to helping you achieve your fitness
-                goals. We offer a wide range of classes, from striking to
-                grappling, that are tailored to meet the needs of all skill
-                levels. At our gym, we pride ourselves on creating a supportive
-                and inclusive community, where everyone is welcome regardless of
-                their background or experience. So, if you're ready to take your
-                fitness to the next level and become a part of a community that
-                is passionate about MMA, then you've come to the right place.
-                Explore our website to learn more about our gym, our programs,
-                and what sets us apart from the rest
+                This is Mauricio Gomez gym owner/head martial arts coach hes
+                going to be around for all the beginner lesson to help everyone
+                develop and have the best expereince possible when training MMA.
               </p>
             </div>
             <div className="mt-8 w-1/2 overflow-hidden">
               <img
-                src={karateLesson}
+                src={blackBelt}
                 alt="Spiderman"
                 className=" transition-all duration-300 hover:scale-110"
               />

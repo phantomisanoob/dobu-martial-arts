@@ -4,6 +4,42 @@ import bcrypt from "bcryptjs";
 const prisma = new PrismaClient();
 
 async function seed() {
+  await prisma.membership.deleteMany({});
+  const basicMembership = await prisma.membership.create({
+    data: {
+      level: "Basic",
+      description: "1 martial art - 2 sessions per week. Monthly fee.",
+      price: "£25.00",
+    },
+  });
+  const intermediateMembership = await prisma.membership.create({
+    data: {
+      level: "Intermediate",
+      description: "1 martial art - 3 sessions per week). Monthly fee",
+      price: "£35.00",
+    },
+  });
+  await prisma.membership.create({
+    data: {
+      level: "Advanced",
+      description: "Any 2 martial arts - 5 sessions per week). Monthly fee",
+      price: "£45.00",
+    },
+  });
+  await prisma.membership.create({
+    data: {
+      level: "Elite",
+      description: "Unlimited classes. Monthly fee",
+      price: "£60.00",
+    },
+  });
+  await prisma.membership.create({
+    data: {
+      level: "Junior",
+      description: "Can attend all-kids martial arts sessions. Monthly fee",
+      price: "£25.00",
+    },
+  });
   const email = "rachel@remix.run";
 
   // cleanup the existing database
@@ -11,7 +47,7 @@ async function seed() {
     // no worries if it doesn't exist yet
   });
 
-  const hashedPassword = await bcrypt.hash("racheliscool", 10);
+  const hashedPassword = await bcrypt.hash("password", 10);
 
   const user = await prisma.user.create({
     data: {
@@ -21,6 +57,19 @@ async function seed() {
           hash: hashedPassword,
         },
       },
+      membershipId: basicMembership.id,
+    },
+  });
+
+  await prisma.user.create({
+    data: {
+      email: "intermediate@outlook.com",
+      password: {
+        create: {
+          hash: hashedPassword,
+        },
+      },
+      membershipId: intermediateMembership.id,
     },
   });
 
